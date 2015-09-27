@@ -4,18 +4,41 @@ $(function() {
     }).done(function(response) {
         var student = response;
         for(var i = 0; i < student.length; i++){
-            if(i = 0) {
-                $('.students').append("<li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\">" +
-                    student[i].name +
-                    "<br>About:" + student[i].description +
-                    "<br>Shout Out: \"" + student[i].shoutOut + "\"</li>");
-
-            } else {
-                $('.students').append("<li data-target=\"#myCarousel\" data-slide-to=\"0\">" +
-                    student[i].name +
+            $('.students').append("<li>" + student[i].name +
                     "<br>About:" + student[i].description +
                     "<br>Shout Out: \"" + student[i].shoutOut + "\"</li>");
             }
-        }
+        $('.jcarousel').jcarousel();
+
+        $('.jcarousel-control-prev')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '-=1'
+            });
+
+        $('.jcarousel-control-next')
+            .on('jcarouselcontrol:active', function() {
+                $(this).removeClass('inactive');
+            })
+            .on('jcarouselcontrol:inactive', function() {
+                $(this).addClass('inactive');
+            })
+            .jcarouselControl({
+                target: '+=1'
+            });
+
+        $('.jcarousel-pagination')
+            .on('jcarouselpagination:active', 'a', function() {
+                $(this).addClass('active');
+            })
+            .on('jcarouselpagination:inactive', 'a', function() {
+                $(this).removeClass('active');
+            })
+            .jcarouselPagination();
     });
 });
