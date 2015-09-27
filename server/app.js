@@ -10,7 +10,12 @@ app.get('/getStudents', function(request, response) {
 
 app.get('/', function(request, response) {
     response.sendFile(__dirname + '/public/views/index.html')
-})
+});
+
+app.get('/', function(request, response) {
+    response.sendFile(__dirname + '/public/views/stylesheet.css')
+});
+
 
 var server = app.listen(3000, function(){
     var port = server.address().port;
