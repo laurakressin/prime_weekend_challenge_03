@@ -9,7 +9,7 @@ app.get('/getStudents', function(request, response) {
 });
 
 app.get('/', function(request, response) {
-    response.sendFile(__direname + '/public/views/index.html')
+    response.sendFile(__dirname + '/public/views/index.html')
 })
 
 var server = app.listen(3000, function(){
