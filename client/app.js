@@ -4,9 +4,9 @@ $(function() {
     }).done(function(response) {
         var student = response;
         for(var i = 0; i < student.length; i++){
-            $('.students').append("<li><h2>" + student[i].name + "</h2>" +
-                    "<h3>About:" + student[i].description + "</h3>" +
-                    "<h4>Shout Out: \"" + student[i].shoutOut + "\"</h4></li>");
+            $('.students').append("<li>" + student[i].name +
+                    "<br>About:" + student[i].description +
+                    "<br>Shout Out: \"" + student[i].shoutOut + "\"</li>");
             }
         $('.jcarousel').jcarousel();
 
